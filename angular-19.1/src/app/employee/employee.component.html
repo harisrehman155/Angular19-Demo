@@ -1,0 +1,32 @@
+<app-employee-filter
+  [all]="countAll()"
+  [male]="countMale()"
+  [female]="countFemale()"
+  (valueFromEmitter)="getGenderOnChange($event)"
+></app-employee-filter>
+
+<!-- table.component.html -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let data of employeeData">
+      <tr *ngIf="selectedGender === 'all' || selectedGender === data.gender">
+        <td>{{ data.id }}</td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.gender }}</td>
+        <td>{{ data.phone }}</td>
+        <td>{{ data.address }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<div class="ms-auto col-4 mb-3 mt-5 ">
+  <select [(ngModel)]="selectedGender" (change)="onFilterChange()"  class="form-select" id="genderSelect">
+    <option value="all">All ({{all}})</option>
+    <option value="male">Male ({{male}})</option>
+    <option value="female">Female ({{female}})</option>
+  </select>
+</div>
