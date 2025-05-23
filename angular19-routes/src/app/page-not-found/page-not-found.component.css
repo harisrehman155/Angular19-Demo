@@ -1,0 +1,110 @@
+.not-found-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.vortex-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #1a0033, #000 70%);
+  animation: vortexSpin 10s linear infinite;
+  z-index: 1;
+}
+
+@keyframes vortexSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particles::before,
+.particles::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 105, 180, 0.8);
+  border-radius: 50%;
+  animation: floatParticles 6s infinite;
+}
+
+.particles::after {
+  width: 15px;
+  height: 15px;
+  background: rgba(0, 255, 255, 0.7);
+  animation-delay: 2s;
+}
+
+@keyframes floatParticles {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  50% { transform: translate(50vw, 50vh) scale(1.5); opacity: 0.5; }
+  100% { transform: translate(100vw, 100vh) scale(0); opacity: 0; }
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff69b4;
+}
+
+.error-code {
+  font-size: 10rem;
+  font-weight: bold;
+  animation: float 4s ease-in-out infinite;
+  margin-bottom: 0;
+  text-shadow: 0 0 20px #00ffff;
+  color: #00ffff;
+}
+
+.message {
+  font-size: 2rem;
+  margin-top: 0;
+  opacity: 0.9;
+  color: #ff69b4;
+}
+
+.home-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background: #00ffff;
+  border: none;
+  border-radius: 5px;
+  color: #1a0033;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.home-button:hover {
+  transform: scale(1.1);
+  background: #ff69b4;
+  color: #fff;
+  box-shadow: 0 0 20px #ff69b4;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
